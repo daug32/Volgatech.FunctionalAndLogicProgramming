@@ -37,6 +37,7 @@ runInsertExamples = do
     print ( insert [] 10 0 ) -- вернет [10]
     print ( insert [1] 10 0 ) -- вернет [10,1]
     print ( insert [1] 10 1 ) -- вернет [1,10]
+    print ( insert [1,2,3] 10 1 ) -- вернет [1,10,2,3]
     print ( insert [1] 10 100 ) -- вернет [1,10]
         
 -- 3. listSumm(L1, L2)
