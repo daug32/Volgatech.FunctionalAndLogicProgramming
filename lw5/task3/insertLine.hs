@@ -5,13 +5,9 @@ main :: IO ()
 main = do
     args <- getArgs
 
-    if length args < 3
-        then writeHelp
-        else do
-            let filePath = head args
-            let lineNumber = read ( args !! 1 ) :: Int
-            let newLine = concat ( take ( length args - 2 ) ( drop 2 args ) )
-            insertAtFile filePath lineNumber newLine
+    case args of
+        [filePath, lineNumber, newLine] -> insertAtFile filePath ( read lineNumber :: Int ) newLine
+        _ -> writeHelp
 
     where 
         writeHelp = do
