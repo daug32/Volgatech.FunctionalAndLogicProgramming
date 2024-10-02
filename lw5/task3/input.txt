@@ -1,0 +1,5 @@
+Hello, world!
+
+    let linesOfContent = lines content
+    let (before, after) = splitAt (lineNumber - 1) linesOfContent
+    let newContent = unlines ( before ++ [newString] ++ after )
