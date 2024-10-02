@@ -4,7 +4,7 @@ import qualified Data.Char as Char
 import qualified Data.ByteString as Set
 import qualified Data.Maybe as Maybe
 
--- Empty
+-- Empty -- создает пустой Map
 myEmpty :: Map.Map k a;
 myEmpty = Map.Tip;
 
@@ -15,7 +15,8 @@ myEmptyTests = do
         "\tresult map size: " ++ show ( Map.size myEmpty ) ++ 
         "\texpected map size: 0" )
 
--- Insert
+
+-- Insert -- вставляет новый элемент в Set
 myInsert :: Ord a => a -> Set.Set a -> Set.Set a
 myInsert item set = Set.fromList ( Set.toList set ++ [item] )
 
@@ -35,7 +36,8 @@ myInsertTests = do
         "\t\tresult: " ++ show ( Set.toList testResult2 ) ++ 
         "\t\texpected: " ++ show ( Set.toList testExpects2 ) )
 
--- Take
+
+-- Take -- берет X элементов из списка
 myTake :: Int -> [a] -> [a]
 myTake count list 
     -- No items asked, return empty list
@@ -72,6 +74,8 @@ myTakeTests = do
         "\t\tresult: " ++ show ( myTake 1 [] :: [Int] ) ++ 
         "\texpected: " ++ show ( take 1 [] :: [Int] ) )
 
+
+-- IsSpace -- проверяет, является ли символ пустым символом, например, пробел 
 myIsSpace :: Char -> Bool
 myIsSpace symbol = Set.member symbol ( Set.fromList [' ', '\n', '\t'] )
 
@@ -98,6 +102,8 @@ myIsSpaceTests = do
         "\tresult: " ++ show ( myIsSpace '\t' ) ++
         "\texpected: " ++ show ( Char.isSpace '\t' ) )
 
+
+-- IsNothing -- проверяет, является ли Maybe значение пустым 
 myIsNothing :: Maybe a -> Bool
 myIsNothing value = case value of
     Just _  -> False
